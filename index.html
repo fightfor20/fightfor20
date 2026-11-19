@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fight for $20</title>
+<meta name="description" content="The business case and the human case for a $20 minimum wage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #111418;
+  --paper: #f3f3ef;
+  --card: #ffffff;
+  --signal: #ffcf00;
+  --blue: #1d48c9;
+  --muted: #5b6068;
+  --rule: #d6d6cf;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.6; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.prose { max-width: 65ch; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.05; margin: 0; }
+h2 { font-size: clamp(30px, 5vw, 46px); font-weight: 900; letter-spacing: -0.01em; }
+h3 { font-size: 21px; font-weight: 700; }
+p { margin: 0; }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.nav { background: var(--ink); color: var(--paper); }
+.nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; }
+.mark { font-family: var(--display); font-weight: 900; font-size: 20px; letter-spacing: 0.02em; }
+.mark span { background: var(--signal); color: var(--ink); padding: 0 6px; }
+.nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; flex-wrap: wrap; font-size: 15px; }
+.nav a { color: var(--paper); text-decoration: none; }
+.nav a:hover { color: var(--signal); }
+.hero { background: var(--ink); color: var(--paper); padding: 56px 0 64px; border-bottom: 10px solid var(--signal); }
+.hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: end; }
+.hero h1 { font-size: clamp(56px, 11vw, 132px); font-weight: 900; letter-spacing: -0.02em; }
+.hero h1 em { font-style: normal; color: var(--signal); }
+.tag { font-family: var(--display); font-weight: 700; font-size: clamp(20px, 2.6vw, 28px); margin-top: 18px; }
+.hero .lede { font-size: 19px; color: #d9dbde; }
+.hero .lede strong { color: var(--paper); }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.btn { display: inline-block; font-family: var(--display); font-weight: 700; font-size: 16px; padding: 13px 20px; text-decoration: none; border: 2px solid var(--signal); cursor: pointer; }
+.btn.primary { background: var(--signal); color: var(--ink); }
+.btn.ghost { color: var(--signal); background: transparent; }
+section { padding: 72px 0; border-bottom: 1px solid var(--rule); }
+.kicker { font-family: var(--mono); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 12px; }
+.stubs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+.stub { background: var(--card); border: 1px solid var(--rule); border-top: 6px solid var(--muted); padding: 22px; font-family: var(--mono); font-size: 15px; font-variant-numeric: tabular-nums; }
+.stub.twenty { border-top-color: var(--signal); box-shadow: 0 10px 30px rgba(17,20,24,.10); }
+.stub .head { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px dashed var(--rule); padding-bottom: 10px; margin-bottom: 10px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; }
+.row.total { border-top: 2px solid var(--ink); margin-top: 8px; padding-top: 10px; font-weight: 600; font-size: 20px; }
+.stub-note { font-size: 14px; color: var(--muted); margin-top: 14px; }
+.tips { margin-top: 28px; background: var(--ink); color: var(--paper); padding: 24px; border-left: 8px solid var(--signal); display: flex; flex-direction: column; gap: 8px; }
+.tips h3 { color: var(--signal); }
+.tips p { max-width: 65ch; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+.fact { background: var(--card); border: 1px solid var(--rule); padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+.fact .n { font-family: var(--display); font-weight: 900; font-size: 44px; line-height: 1; }
+.fact p { font-size: 16px; color: var(--muted); }
+.case { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; margin-top: 32px; }
+.point { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 3px solid var(--ink); }
+.point p { font-size: 17px; }
+.src { font-size: 14px; color: var(--muted); }
+.honest { background: var(--card); }
+.ledger { margin-top: 32px; display: grid; gap: 0; border: 1px solid var(--rule); }
+.ledger-row { display: grid; grid-template-columns: 1fr 1fr; }
+.ledger-row > div { padding: 18px 20px; border-bottom: 1px solid var(--rule); }
+.ledger-row > div:first-child { border-right: 1px solid var(--rule); }
+.ledger-row:last-child > div { border-bottom: 0; }
+.ledger-head > div { font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; background: var(--ink); color: var(--paper); }
+.ledger-head > div:last-child { color: var(--signal); }
+.places { margin-top: 28px; border-top: 2px solid var(--ink); }
+.place { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.place .rate { font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; font-size: 20px; }
+.place small { display: block; color: var(--muted); font-size: 14px; }
+.timeline { margin-top: 28px; display: flex; flex-direction: column; gap: 0; }
+.ev { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.ev time { font-family: var(--mono); font-size: 14px; color: var(--blue); padding-top: 3px; }
+.join { background: var(--ink); color: var(--paper); border-bottom: 10px solid var(--signal); }
+.join .kicker { color: var(--signal); }
+.join .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+form { display: flex; flex-direction: column; gap: 14px; }
+label { font-size: 14px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: #c9ccd1; }
+input, select { width: 100%; padding: 12px; font: inherit; font-size: 17px; border: 2px solid #3a3f47; background: #1b1f25; color: var(--paper); }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.thanks { display: none; background: var(--signal); color: var(--ink); padding: 14px; font-weight: 600; }
+.sources ol { padding-left: 22px; margin: 20px 0 0; font-size: 15px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+footer { padding: 32px 0 48px; font-size: 14px; color: var(--muted); }
+@media (max-width: 760px) {
+  .hero .wrap, .stubs, .facts, .case, .join .wrap { grid-template-columns: 1fr; }
+  .ledger-row { grid-template-columns: 1fr; }
+  .ledger-row > div:first-child { border-right: 0; }
+  .ev { grid-template-columns: 1fr; gap: 4px; }
+  section { padding: 52px 0; }
+  .hero { padding: 40px 0 48px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <div class="mark">FIGHT FOR <span>$20</span></div>
+    <ul>
+      <li><a href="#math">The math</a></li>
+      <li><a href="#business">Business case</a></li>
+      <li><a href="#tradeoffs">Tradeoffs</a></li>
+      <li><a href="#now">What's happening</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Fight for <em>$20</em></h1>
+      <p class="tag">Better wages. Stronger businesses.</p>
+    </div>
+    <div class="stack">
+      <p class="lede">The federal minimum wage has been <strong>$7.25 an hour since July 2009</strong>. Rent, groceries and childcare have not waited 17 years. A $20 floor pays for a life, and it pays for a better business.</p>
+      <div class="btns">
+        <a class="btn primary" href="#join">Add your name</a>
+        <a class="btn ghost" href="#business">Read the case</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="math">
+  <div class="wrap">
+    <p class="kicker">The math</p>
+    <h2>One full-time year, two pay stubs</h2>
+    <p class="prose" style="margin-top:16px">Same job. Same 40 hours a week, 52 weeks a year. The only difference is the floor.</p>
+    <div class="stubs">
+      <div class="stub" aria-label="Pay at $7.25 an hour">
+        <div class="head"><span>Federal minimum</span><span>Since 2009</span></div>
+        <div class="row"><span>Hourly rate</span><span>$7.25</span></div>
+        <div class="row"><span>Hours / year</span><span>2,080</span></div>
+        <div class="row total"><span>Gross / year</span><span>$15,080</span></div>
+      </div>
+      <div class="stub twenty" aria-label="Pay at $20 an hour">
+        <div class="head"><span>Fight for $20</span><span>Proposed</span></div>
+        <div class="row"><span>Hourly rate</span><span>$20.00</span></div>
+        <div class="row"><span>Hours / year</span><span>2,080</span></div>
+        <div class="row total"><span>Gross / year</span><span>$41,600</span></div>
+      </div>
+    </div>
+    <p class="stub-note">Difference: $26,520 a year, before taxes. Base pay, paid by the employer.</p>
+
+    <div class="tips">
+      <h3>Tips go on top</h3>
+      <p>$20 is the wage. Tips are the customer's choice, on top of it. A tip should thank someone for good service, not cover their rent. We don't want tips banned, and we don't want them counted toward the wage.</p>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><span class="n">17 yrs</span><p>Since Congress last raised the federal minimum wage. The longest stretch without a raise since the minimum wage began.</p></div>
+      <div class="fact"><span class="n">20</span><p>States that still default to the $7.25 federal floor.</p></div>
+      <div class="fact"><span class="n">87%</span><p>Share of workers earning $17 or less who are over age 20. These are adults, many supporting families.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="business">
+  <div class="wrap">
+    <p class="kicker">The business case</p>
+    <h2>Written from behind the counter</h2>
+    <p class="prose" style="margin-top:16px">Most of the argument about wages happens between people who have never made payroll. Operators know the real cost of a low wage is rarely on the wage line. It shows up in turnover, training, empty shifts and bad service.</p>
+    <div class="case">
+      <div class="point">
+        <h3>Turnover is the hidden tax</h3>
+        <p>Every person who quits takes their training with them. You pay to recruit, onboard and cover their shifts, and your best people burn out picking up the slack. Higher pay keeps people longer.</p>
+        <p class="src">Berkeley economist Michael Reich: higher minimums reduce vacancies and turnover rather than jobs.</p>
+      </div>
+      <div class="point">
+        <h3>Stable teams serve better</h3>
+        <p>A crew that has worked together for a year is faster, makes fewer mistakes and knows the regulars. Guests feel the difference before they read the menu.</p>
+      </div>
+      <div class="point">
+        <h3>A floor levels the field</h3>
+        <p>Employers who already pay well get undercut by competitors who don't. A national floor ends that race to the bottom and lets companies compete on product and service.</p>
+      </div>
+      <div class="point">
+        <h3>Workers are customers</h3>
+        <p>Low-wage workers spend what they earn, close to home. More money in their pockets is more money through local registers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="society">
+  <div class="wrap">
+    <p class="kicker">The human case</p>
+    <h2>A full-time job should cover a life</h2>
+    <div class="case">
+      <div class="point">
+        <h3>Work should pay for itself</h3>
+        <p>When wages are too low, taxpayers fill the gap through public assistance. A higher floor moves that cost back to where it belongs.</p>
+      </div>
+      <div class="point">
+        <h3>Time is part of the wage</h3>
+        <p>At $7.25, people work two or three jobs to cover rent. That is time away from kids, school and rest. A real wage gives some of it back.</p>
+      </div>
+      <div class="point">
+        <h3>$20 is not a new idea in practice</h3>
+        <p>Several cities and an entire California industry already pay $20 or more. The question is whether workers in the other places get to catch up.</p>
+      </div>
+      <div class="point">
+        <h3>Inflation already did the math</h3>
+        <p>The $15 people fought for a decade ago buys far less today. $20 is what keeping pace looks like.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tradeoffs" class="honest">
+  <div class="wrap">
+    <p class="kicker">What it takes</p>
+    <h2>The honest version</h2>
+    <p class="prose" style="margin-top:16px">Higher wages are not free, and pretending otherwise hurts the case. Here is what the critics say and what it takes to make $20 work.</p>
+    <div class="ledger" role="table" aria-label="Concerns and responses">
+      <div class="ledger-row ledger-head" role="row"><div role="columnheader">The concern</div><div role="columnheader">Making it work</div></div>
+      <div class="ledger-row" role="row">
+        <div role="cell">The Congressional Budget Office estimated a $17 federal minimum could cost about 700,000 jobs on average, while raising pay for millions.</div>
+        <div role="cell">Phase it in over several years so businesses can plan menus, staffing and prices. Index it afterward so it never freezes for 17 years again.</div>
+      </div>
+      <div class="ledger-row" role="row">
+        <div role="cell">Research on California's $20 fast-food wage is mixed. One study found fewer hours and more kiosks; another found higher pay without job losses.</div>
+        <div role="cell">Watch the data, publish it and adjust the schedule if needed. The goal is a raise people keep, not one that disappears into cut shifts.</div>
+      </div>
+      <div class="ledger-row" role="row">
+        <div role="cell">$20 in Mississippi is not $20 in San Francisco. Small, rural and independent businesses run on thin margins.</div>
+        <div role="cell">Longer runways for small employers and lower-cost regions. Pair the floor with relief elsewhere, such as payroll tax credits during the phase-in.</div>
+      </div>
+      <div class="ledger-row" role="row">
+        <div role="cell">Prices go up.</div>
+        <div role="cell">Some will. Owners should say so plainly. Most guests will pay a little more to be served by people who can afford to live nearby.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="where">
+  <div class="wrap">
+    <p class="kicker">Already happening</p>
+    <h2>Where $20 is already the floor</h2>
+    <div class="places">
+      <div class="place"><div><strong>Emeryville, California</strong><small>Citywide, effective July 1, 2026</small></div><span class="rate">$20.34</span></div>
+      <div class="place"><div><strong>West Hollywood, California</strong><small>Non-hotel workers, effective January 1, 2026</small></div><span class="rate">$20.25</span></div>
+      <div class="place"><div><strong>California fast food</strong><small>Large chains, statewide since April 2024</small></div><span class="rate">$20.00</span></div>
+      <div class="place"><div><strong>Federal minimum</strong><small>Unchanged since July 2009</small></div><span class="rate">$7.25</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="now">
+  <div class="wrap">
+    <p class="kicker">What's happening</p>
+    <h2>The push for $20</h2>
+    <div class="timeline">
+      <div class="ev"><time datetime="2025-04">April 2025</time><p>The Raise the Wage Act of 2025 is introduced in Congress, proposing a $17 federal minimum by 2030.</p></div>
+      <div class="ev"><time datetime="2026-10">October 2026</time><p>Sen. Bernie Sanders calls for a federal minimum of at least $20 an hour once Democrats retake Congress.</p></div>
+      <div class="ev"><time datetime="2026-11">November 2026</time><p>Sanders, expected to chair the Senate HELP Committee in January, lists a $20 federal minimum among his committee priorities.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="join">
+  <div class="wrap">
+    <div class="stack">
+      <p class="kicker">Get involved</p>
+      <h2>Add your name</h2>
+      <p>Workers, owners and customers. If you think a full-time job should pay for a life, say so. We'll share updates and, when the time comes, ways to make your voice count.</p>
+      <p style="color:#c9ccd1;font-size:16px">Employers: we especially want to hear from you. The case for $20 is strongest when it comes from people who sign the checks.</p>
+    </div>
+    <form id="signup" novalidate>
+      <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="zip">ZIP code</label><input id="zip" name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code"></div>
+      <div class="field"><label for="role">I'm a</label>
+        <select id="role" name="role">
+          <option>Worker</option>
+          <option>Business owner or employer</option>
+          <option>Supporter</option>
+        </select>
+      </div>
+      <button class="btn primary" type="submit">Count me in</button>
+      <p class="thanks" id="thanks" role="status">Thanks. You're on the list.</p>
+    </form>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <p class="kicker">Sources</p>
+    <ol>
+      <li>Sen. Bernie Sanders, Raise the Wage Act of 2025 fact sheet.</li>
+      <li>House Education &amp; Workforce Democrats, "Labor Leaders Introduce Bill to Raise Minimum Wage," April 8, 2025.</li>
+      <li>Benzinga, "Bernie Sanders Demands $20 Minimum Wage When Democrats Retake Congress," October 2026.</li>
+      <li>Associated Press, "Bernie Sanders unveils how he'll push for Medicare for All when Democrats take power," November 18, 2026.</li>
+      <li>Congressional Budget Office, "The Budgetary and Economic Effects of S. 2488, the Raise the Wage Act of 2023," December 2023.</li>
+      <li>UC Berkeley Institute for Research on Labor and Employment, California fast-food wage study, September 2024; UC Santa Cruz study as reported July 2026.</li>
+      <li>GovDocs, City and County Minimum Wage Updates, July 1, 2026; city of West Hollywood minimum wage, 2026.</li>
+      <li>Michael Reich, UC Berkeley, on minimum wage employment effects.</li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">FightFor20.com is an independent project. Not affiliated with any candidate, party or campaign.</div>
+</footer>
+
+<script>
+document.getElementById('signup').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var email = document.getElementById('email');
+  var name = document.getElementById('name');
+  if (!name.value.trim() || !email.value.includes('@')) {
+    (name.value.trim() ? email : name).focus();
+    return;
+  }
+  document.getElementById('thanks').style.display = 'block';
+  this.querySelector('button').disabled = true;
+});
+</script>
+</body>
+</html>
