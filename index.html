@@ -303,6 +303,7 @@ html { scroll-behavior: smooth; }
           <option>Supporter</option>
         </select>
       </div>
+      <input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <button class="btn primary" type="submit">Count me in</button>
       <p class="thanks" id="thanks" role="status">Thanks. You're on the list.</p>
     </form>
@@ -332,16 +333,43 @@ html { scroll-behavior: smooth; }
 </footer>
 
 <script>
+// Until Kit is set up, each sign-up is emailed to lfg@ through FormSubmit (formsubmit.co).
+// After the first sign-up, FormSubmit emails lfg@ an activation link; once clicked, it also
+// sends a random-string alias that can replace the address below so it isn't in the page source.
+var SIGNUP_ENDPOINT = 'https://formsubmit.co/ajax/lfg@fightfor20.com';
+
 document.getElementById('signup').addEventListener('submit', function (e) {
   e.preventDefault();
   var email = document.getElementById('email');
   var name = document.getElementById('name');
+  var thanks = document.getElementById('thanks');
+  var button = this.querySelector('button');
   if (!name.value.trim() || !email.value.includes('@')) {
     (name.value.trim() ? email : name).focus();
     return;
   }
-  document.getElementById('thanks').style.display = 'block';
-  this.querySelector('button').disabled = true;
+  button.disabled = true;
+  fetch(SIGNUP_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      Name: name.value.trim(),
+      Email: email.value.trim(),
+      ZIP: document.getElementById('zip').value.trim(),
+      Role: document.getElementById('role').value,
+      _subject: 'New sign-up on fightfor20.com',
+      _template: 'table',
+      _honey: document.getElementById('honey').value
+    })
+  }).then(function (r) {
+    if (!r.ok) throw new Error(r.status);
+    thanks.textContent = "Thanks. You're on the list.";
+    thanks.style.display = 'block';
+  }).catch(function () {
+    thanks.textContent = 'Something went wrong. Please try again.';
+    thanks.style.display = 'block';
+    button.disabled = false;
+  });
 });
 </script>
 </body>
