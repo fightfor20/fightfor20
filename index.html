@@ -98,6 +98,14 @@ section { padding: 72px 0; border-bottom: 1px solid var(--rule); }
 .ev .thumb img.logo { object-fit: contain; background: #fff; }
 .ev .thumb span { display: none; height: 100%; align-items: center; justify-content: center; text-align: center; padding: 8px; font-family: var(--mono); font-size: 12px; color: var(--ink); }
 .ev .thumb.noimg span { display: flex; }
+.watch { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px; }
+.talk { background: var(--card); border: 1px solid var(--rule); display: flex; flex-direction: column; text-decoration: none; color: var(--ink); }
+.talk:hover { border-color: var(--ink); }
+.talk .pic { display: block; aspect-ratio: 1050 / 550; background: var(--ink); overflow: hidden; }
+.talk .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.talk .body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; }
+.talk .who { font-size: 15px; color: var(--muted); }
+.talk .meta { font-family: var(--mono); font-size: 13px; color: var(--blue); }
 .join { background: var(--ink); color: var(--paper); border-bottom: 10px solid var(--signal); }
 .join .kicker { color: var(--signal); }
 .join .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
@@ -109,7 +117,7 @@ input, select { width: 100%; padding: 12px; font: inherit; font-size: 17px; bord
 .sources ol { padding-left: 22px; margin: 20px 0 0; font-size: 15px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
 footer { padding: 32px 0 48px; font-size: 14px; color: var(--muted); }
 @media (max-width: 760px) {
-  .hero .wrap, .stubs, .facts, .case, .join .wrap { grid-template-columns: 1fr; }
+  .hero .wrap, .stubs, .facts, .case, .watch, .join .wrap { grid-template-columns: 1fr; }
   .ledger-row { grid-template-columns: 1fr; }
   .ledger-row > div:first-child { border-right: 0; }
   .ev { grid-template-columns: 1fr 96px; gap: 4px 14px; }
@@ -130,6 +138,7 @@ html { scroll-behavior: smooth; }
     <ul>
       <li><a href="#math">The math</a></li>
       <li><a href="#business">Business case</a></li>
+      <li><a href="#watch">Watch</a></li>
       <li><a href="#tradeoffs">Tradeoffs</a></li>
       <li><a href="#now">What's happening</a></li>
       <li><a href="#join">Join</a></li>
@@ -212,6 +221,33 @@ html { scroll-behavior: smooth; }
         <h3>Workers are customers</h3>
         <p>Low-wage workers spend what they earn, close to home. More money in their pockets is more money through local registers.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="watch">
+  <div class="wrap">
+    <p class="kicker">Watch</p>
+    <h2>Two talks worth your time</h2>
+    <div class="watch">
+      <a class="talk" href="https://www.ted.com/talks/zeynep_ton_the_case_for_good_jobs_and_why_they_re_good_for_business_too" target="_blank" rel="noopener">
+        <span class="pic"><img src="https://pi.tedcdn.com/r/talkstar-assets.s3.amazonaws.com/production/talks/talk_135442/ce72910c-b485-4431-bd2c-b968c18ae2e9/ZeynepTon_2024-embed.jpg?quality=80&amp;w=1050" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>
+        <div class="body">
+          <h3>The case for good jobs, and why they're good for business too</h3>
+          <span class="who">Zeynep Ton, MIT business professor</span>
+          <p>Low pay costs more than it saves. Costco and Sam's Club paid more, kept people longer and sold more.</p>
+          <span class="meta">TED 2024 &middot; 14 min &rarr;</span>
+        </div>
+      </a>
+      <a class="talk" href="https://www.ted.com/talks/nick_hanauer_beware_fellow_plutocrats_the_pitchforks_are_coming" target="_blank" rel="noopener">
+        <span class="pic"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/15943e3c-6fce-440a-b5c3-a873cec8bc51/NickHanauer_2014S-embed.jpg?quality=80&amp;w=1050" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>
+        <div class="body">
+          <h3>Beware, fellow plutocrats, the pitchforks are coming</h3>
+          <span class="who">Nick Hanauer, Seattle entrepreneur and early Amazon investor</span>
+          <p>Customers create jobs. Pay workers more and they spend it at local businesses.</p>
+          <span class="meta">TED 2014 &middot; 20 min &rarr;</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
