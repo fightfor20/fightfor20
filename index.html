@@ -82,6 +82,11 @@ section { padding: 72px 0; border-bottom: 1px solid var(--rule); }
 .tips p { max-width: 65ch; }
 .objection { margin-top: 24px; background: var(--card); border: 1px solid var(--rule); border-left: 8px solid var(--muted); padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; max-width: 75ch; }
 .objection .label { font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.intl { margin-top: 40px; display: flex; flex-direction: column; gap: 10px; max-width: 65ch; }
+.agetable { border-collapse: collapse; margin-top: 6px; font-family: var(--mono); font-size: 15px; font-variant-numeric: tabular-nums; max-width: 360px; }
+.agetable th, .agetable td { text-align: left; padding: 7px 16px 7px 0; border-bottom: 1px solid var(--rule); }
+.agetable th { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 400; border-bottom: 2px solid var(--ink); }
+.agetable td:last-child, .agetable th:last-child { text-align: right; padding-right: 0; }
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
 .fact { background: var(--card); border: 1px solid var(--rule); padding: 22px; display: flex; flex-direction: column; gap: 8px; }
 .fact .n { font-family: var(--display); font-weight: 900; font-size: 44px; line-height: 1; }
@@ -404,6 +409,24 @@ html { scroll-behavior: smooth; }
         <p>Some marginal places will close. Phase-in and longer runways for small and rural employers give first jobs time to adjust. <a href="#tradeoffs">See the honest version</a>.</p>
       </div>
     </div>
+
+    <div class="intl">
+      <h3>How Australia does it</h3>
+      <p>Australia's adult minimum is A$26.44 an hour (July 2026). Workers under 21 get a set share of the adult rate, rising each birthday. In fast food:</p>
+      <table class="agetable">
+        <thead><tr><th>Age</th><th>Share of adult rate</th></tr></thead>
+        <tbody>
+          <tr><td>Under 16</td><td>40%</td></tr>
+          <tr><td>16</td><td>50%</td></tr>
+          <tr><td>17</td><td>60%</td></tr>
+          <tr><td>18</td><td>70%</td></tr>
+          <tr><td>19</td><td>80%</td></tr>
+          <tr><td>20</td><td>90%</td></tr>
+          <tr><td>21 and up</td><td>100%</td></tr>
+        </tbody>
+      </table>
+      <p class="src">In 2026, Australia's wage tribunal ruled that 18 to 20 year olds doing the same work should earn the adult rate. In retail, fast food and pharmacy, their share rises in steps from December 2026 and reaches 100% by July 2029. Rates for under-18s stay as shown.</p>
+    </div>
   </div>
 </section>
 
@@ -512,6 +535,8 @@ html { scroll-behavior: smooth; }
       <li>Joshua Choper, Daniel Schneider and Kristen Harknett, "Uncertain Time: Precarious Schedules and Job Turnover in the U.S. Service Sector," ILR Review, 2021 (Harvard Shift Project).</li>
       <li>U.S. Department of Labor, Wage and Hour Division, overtime and joint employment under the Fair Labor Standards Act.</li>
       <li>Internal Revenue Service, fact sheet FS-2025-03 and Tax Tip 2026-06, January 26, 2026.</li>
+      <li>Fair Work Ombudsman, "Minimum wage increase starts today," July 1, 2026; Fast Food Industry Award 2020, clause 15.2.</li>
+      <li>Fair Work Commission, junior rates decision, March 31, 2026, and phase-in schedule, [2026] FWCFB 222, August 26, 2026.</li>
     </ol>
   </div>
 </section>
