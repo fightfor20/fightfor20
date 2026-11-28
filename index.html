@@ -168,9 +168,13 @@ h2 { font-size: clamp(28px, 4.5vw, 40px); }
   .mark img { height: 40px; }
   .nav ul { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; gap: 18px; white-space: nowrap; scrollbar-width: none; padding-bottom: 2px; }
   .nav ul::-webkit-scrollbar { display: none; }
-  .hero h1 { font-size: 56px; }
   .hero .wrap { gap: 20px; }
 }
+.hero .wrap { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.hero .tag { margin: 0; font-family: var(--mono); font-size: 14px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.08em; color: var(--signal); }
+.hero h1 { font-size: clamp(38px, 6.4vw, 76px); max-width: 16ch; line-height: 1.02; }
+.hero .lede { max-width: 56ch; font-size: 19px; }
+@media (max-width: 760px) { .hero h1 { font-size: 40px; } .hero .lede { font-size: 17px; } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 html { scroll-behavior: smooth; }
 </style>
@@ -195,16 +199,12 @@ html { scroll-behavior: smooth; }
 
 <header class="hero">
   <div class="wrap">
-    <div>
-      <h1>Fight for <em>$20</em></h1>
-      <p class="tag">Better wages. Stronger businesses.</p>
-    </div>
-    <div class="stack">
-      <p class="lede">The federal minimum wage has been <strong>$7.25 an hour since July 2009</strong>. Rent, groceries and childcare have not waited 17 years. A $20 floor pays for a life, and it pays for a better business.</p>
-      <div class="btns">
-        <a class="btn primary" href="#join">Add your name</a>
-        <a class="btn ghost" href="#business">Read the case</a>
-      </div>
+    <p class="tag">Fight for $20 &middot; Better wages. Stronger businesses.</p>
+    <h1>Low pay costs a business <em>more than it saves.</em></h1>
+    <p class="lede">A $20 floor keeps good people, cuts turnover and puts money back in local registers. The federal minimum has been <strong>$7.25 since July 2009</strong>.</p>
+    <div class="btns">
+      <a class="btn primary" href="#business">See the business case</a>
+      <a class="btn ghost" href="#join">Add your name</a>
     </div>
   </div>
 </header>
