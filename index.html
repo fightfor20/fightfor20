@@ -147,6 +147,30 @@ footer { padding: 32px 0 48px; font-size: 14px; color: var(--muted); }
   section { padding: 52px 0; }
   .hero { padding: 40px 0 48px; }
 }
+/* calmer layout */
+section { padding: 56px 0; }
+h2 { font-size: clamp(28px, 4.5vw, 40px); }
+.news { padding: 40px 0 44px; background: var(--card); }
+.news .timeline { margin-top: 18px; }
+.ev { padding: 14px 0; }
+.ev p { font-size: 16px; line-height: 1.5; }
+.ev { grid-template-columns: 130px 1fr 130px; }
+.ev .thumb { width: 130px; }
+.ev .new { display: inline-block; margin-left: 8px; padding: 1px 6px; background: var(--signal); color: var(--ink); font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: 1px; }
+.sources summary { cursor: pointer; margin-bottom: 0; }
+.sources { padding: 32px 0; }
+@media (max-width: 760px) {
+  section { padding: 40px 0; }
+  .news { padding: 28px 0 32px; }
+  .ev { grid-template-columns: 1fr 80px; }
+  .ev .thumb { width: 80px; }
+  .nav .wrap { flex-wrap: nowrap; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 10px; padding-bottom: 10px; }
+  .mark img { height: 40px; }
+  .nav ul { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; gap: 18px; white-space: nowrap; scrollbar-width: none; padding-bottom: 2px; }
+  .nav ul::-webkit-scrollbar { display: none; }
+  .hero h1 { font-size: 56px; }
+  .hero .wrap { gap: 20px; }
+}
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 html { scroll-behavior: smooth; }
 </style>
@@ -157,12 +181,12 @@ html { scroll-behavior: smooth; }
   <div class="wrap">
     <a class="mark" href="#"><img src="assets/logo/fightfor20-header.svg" alt="Fight for $20" width="254" height="52"></a>
     <ul>
+      <li><a href="#now">News</a></li>
       <li><a href="#math">The math</a></li>
       <li><a href="#business">Business case</a></li>
       <li><a href="#watch">Watch</a></li>
       <li><a href="#tradeoffs">Tradeoffs</a></li>
       <li><a href="#policies">Policies</a></li>
-      <li><a href="#now">What's happening</a></li>
       <li><a href="blog/">Blog</a></li>
       <li><a href="#join">Join</a></li>
     </ul>
@@ -186,6 +210,26 @@ html { scroll-behavior: smooth; }
 </header>
 
 <main>
+
+<section id="now" class="news">
+  <div class="wrap">
+    <p class="kicker">What's happening</p>
+    <h2>The push for $20</h2>
+    <div class="timeline">
+      <div class="ev"><time datetime="2026-11-25">Nov. 25, 2026</time><p>Pennsylvania U.S. Sen. Dave McCormick, who says he has &ldquo;generally been opposed&rdquo; to raising the minimum wage, now says a $15 state minimum is &ldquo;something I&rsquo;d be open-minded about.&rdquo; It is a statement, not a bill. Pennsylvania is still at $7.25. <a class="src" href="https://www.northcentralpa.com/news/state/u-s-sen-dave-mccormick-open-minded-to-15-minimum-wage-in-pennsylvania/article_31818de6-582a-5b14-b925-458f843c573c.html" target="_blank" rel="noopener">The Center Square &rarr;</a></p><a class="thumb" href="https://www.northcentralpa.com/news/state/u-s-sen-dave-mccormick-open-minded-to-15-minimum-wage-in-pennsylvania/article_31818de6-582a-5b14-b925-458f843c573c.html" target="_blank" rel="noopener" aria-label="Read at The Center Square"><img src="https://bloximages.newyork1.vip.townnews.com/northcentralpa.com/content/tncms/assets/v3/editorial/f/3e/f3ee026e-f4f4-11ee-97c1-3b9fbc716633/6612be13a4638.image.jpg?crop=1000%2C525%2C0%2C27" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>The Center Square</span></a></div>
+      <div class="ev"><time datetime="2026-11-25">Nov. 25, 2026</time><p>Opponents linked to D.C.'s restaurant association challenge more than 30,000 of the 43,000 signatures for Initiative 87. It would raise D.C.'s minimum from $18.40 to $25 by 2029 and end the lower tipped wage by 2031. The elections board has 20 days to decide if it makes the April 6 ballot. No ruling yet. <a class="src" href="https://www.washingtonsun.com/metro/dc/minimum-wage-initiative-voter-signatures" target="_blank" rel="noopener">The Washington Sun &rarr;</a></p><a class="thumb" href="https://www.washingtonsun.com/metro/dc/minimum-wage-initiative-voter-signatures" target="_blank" rel="noopener" aria-label="Read at The Washington Sun"><img src="https://static.washingtonsun.com/dims4/default/0331524/2147483647/strip/true/crop/7502x4220+0+391/resize/1440x810!/quality/90/?url=https%3A%2F%2Fk2-prod-aji.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fa8%2F6d%2Facdba61342b798a9780f255c0d79%2Fearlyvoting-dc-061226-02.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>The Washington Sun</span></a></div>
+      <div class="ev"><time datetime="2026-11-23">Nov. 23, 2026</time><p>A Texas bill, HB 110, would raise the state minimum from $7.25 to $15 on Sept. 1, 2027. It is a bill, not law. The legislature meets in January. <a class="src" href="https://www.kltv.com/2026/11/23/state-rep-explains-bill-that-would-raise-minimum-wage-texas-workers/" target="_blank" rel="noopener">KLTV &rarr;</a></p><a class="thumb" href="https://www.kltv.com/2026/11/23/state-rep-explains-bill-that-would-raise-minimum-wage-texas-workers/" target="_blank" rel="noopener" aria-label="Read at KLTV"><img src="https://gray-kltv-prod.gtv-cdn.com/resizer/v2/FLTQVO7ZKBB73CU24DH53PGY5M.jpg?auth=af38c0ed74c2b4e4993572e7ec67a2ad129ad68070bdfae5977cb40cfac3754a&amp;width=1200&amp;height=600&amp;smart=true" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>KLTV</span></a></div>
+      <div class="ev"><time datetime="2026-11-23">Nov. 23, 2026</time><p>Arkansas lawmakers file bills to raise the state minimum from $11 to $15. One reaches $15 in January 2028. Another starts at $13.50 once in effect and reaches $15 a year later. None is law yet. The legislature meets Jan. 11. <a class="src" href="https://www.actionnews5.com/2026/11/23/arkansas-bills-would-raise-minimum-wage-15-an-hour/" target="_blank" rel="noopener">Action News 5 &rarr;</a></p><a class="thumb" href="https://www.actionnews5.com/2026/11/23/arkansas-bills-would-raise-minimum-wage-15-an-hour/" target="_blank" rel="noopener" aria-label="Read at Action News 5"><img src="https://gray-wmctv-prod.gtv-cdn.com/resizer/v2/6WTJFD6HO5HHXJZ7ZXEGH6LBQM.png?auth=c75eb71b8b4eb7b7493ba531440dff4e3d52db6c712fcd91935d488148dd037e&amp;width=1200&amp;height=600&amp;smart=true" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>Action News 5</span></a></div>
+      <div class="ev"><time datetime="2026-11-20">Nov. 20, 2026</time><p>Pennsylvania Gov. Josh Shapiro tells PBS News Hour the first bill on his desk in January will raise the state minimum from $7.25 to at least $15. It is not law yet. He gave no phase-in and said nothing about tipped wages. <a class="src" href="https://www.pbs.org/newshour/show/josh-shapiro-on-foreign-policy-democratic-wins-and-his-2028-ambitions" target="_blank" rel="noopener">PBS News Hour &rarr;</a></p><a class="thumb" href="https://www.pbs.org/newshour/show/josh-shapiro-on-foreign-policy-democratic-wins-and-his-2028-ambitions" target="_blank" rel="noopener" aria-label="Read at PBS News Hour"><img src="https://d3i6fh83elv35t.cloudfront.net/static/2026/11/oneonone-1024x683.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>PBS News Hour</span></a></div>
+      <div class="ev"><time datetime="2026-11-18">Nov. 18, 2026</time><p>A group of 17 current and incoming House members pushes the Living Wage For All Act, a $25 federal minimum. Employers with 500 or more workers or $1 billion in revenue would reach $25 by 2031; everyone else by 2038. The bill also ends the lower cash wage for tipped workers. Tips stay with the worker. <a class="src" href="https://www.aljazeera.com/economy/2026/11/18/us-lawmakers-push-to-raise-minimum-wage-to-25-end-tipped-pay-system" target="_blank" rel="noopener">Al Jazeera &rarr;</a></p><a class="thumb" href="https://www.aljazeera.com/economy/2026/11/18/us-lawmakers-push-to-raise-minimum-wage-to-25-end-tipped-pay-system" target="_blank" rel="noopener" aria-label="Read at Al Jazeera"><img src="https://www.aljazeera.com/wp-content/uploads/2026/11/2026-11-12T145626Z_1656464802_RC2SXY95PV4I_RTRMADP_3_USA-ECONOMY-1795030831.jpg?resize=640%2C480" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>Al Jazeera</span></a></div>
+      <div class="ev"><time datetime="2026-11-18">Nov. 18, 2026</time><p>Pennsylvania Gov. Josh Shapiro says a minimum wage bill will reach his desk before his second term starts January 19. He backs at least $15 an hour, up from the state's $7.25. The final amount and phase-in are not set. <a class="src" href="https://justthenews.com/nation/states/center-square/shapiro-predicts-15-hourly-minimum-wage-bill-will-hit-his-desk-first" target="_blank" rel="noopener">The Center Square &rarr;</a></p><a class="thumb" href="https://justthenews.com/nation/states/center-square/shapiro-predicts-15-hourly-minimum-wage-bill-will-hit-his-desk-first" target="_blank" rel="noopener" aria-label="Read at The Center Square"><img src="https://justthenews.com/sites/default/files/styles/social_media_share/public/2024-07/GettyImages-1514617789.jpg?h=69f2b9d0&amp;itok=-L7na56w" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>The Center Square</span></a></div>
+      <div class="ev"><time datetime="2026-11">November 2026</time><p>Sanders, expected to chair the Senate HELP Committee in January, lists a $20 federal minimum among his committee priorities. <a class="src" href="https://www.pbs.org/newshour/politics/ap-report-bernie-sanders-unveils-how-hell-push-for-medicare-for-all-when-democrats-take-power" target="_blank" rel="noopener">AP via PBS NewsHour &rarr;</a></p><a class="thumb" href="https://www.pbs.org/newshour/politics/ap-report-bernie-sanders-unveils-how-hell-push-for-medicare-for-all-when-democrats-take-power" target="_blank" rel="noopener" aria-label="Read at AP via PBS NewsHour"><img src="https://d3i6fh83elv35t.cloudfront.net/static/2026/11/2026-11-17T185417Z_133484952_RC2TPOAFQ5LG_RTRMADP_3_USA-CONGRESS-1024x683.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>AP via PBS NewsHour</span></a></div>
+      <div class="ev"><time datetime="2026-10">October 2026</time><p>Sen. Bernie Sanders calls for a federal minimum of at least $20 an hour. <a class="src" href="https://www.yahoo.com/news/politics/articles/bernie-sanders-demands-20-minimum-183007545.html" target="_blank" rel="noopener">Benzinga &rarr;</a></p><a class="thumb" href="https://www.yahoo.com/news/politics/articles/bernie-sanders-demands-20-minimum-183007545.html" target="_blank" rel="noopener" aria-label="Read at Benzinga"><img src="https://s.yimg.com/lo/mysterio/api/ad60f95166da7a62db627ce8feb9e9de3d35832b2031af8a7a42d47678093f8f/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbenzinga_79%2F46b1d2a40c0022eff299c7b3c5bbb69b.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>Benzinga</span></a></div>
+      <div class="ev"><time datetime="2025-04">April 2025</time><p>The Raise the Wage Act of 2025 is introduced in Congress, proposing a $17 federal minimum by 2030. <a class="src" href="https://democrats-edworkforce.house.gov/media/press-releases/04/08/2025/labor-leaders-introduce-bill-to-raise-minimum-wage" target="_blank" rel="noopener">House Education &amp; Workforce Democrats &rarr;</a></p><a class="thumb" href="https://democrats-edworkforce.house.gov/media/press-releases/04/08/2025/labor-leaders-introduce-bill-to-raise-minimum-wage" target="_blank" rel="noopener" aria-label="Read at House Education &amp; Workforce Democrats"><img src="https://democrats-edworkforce.house.gov/themes/edlabor/images/sharelogo.jpg" class="logo" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>House Education &amp; Workforce Democrats</span></a></div>
+    </div>
+    <button type="button" class="more" id="tl-more" hidden aria-expanded="false">See more</button>
+  </div>
+</section>
 
 <section id="math">
   <div class="wrap">
@@ -476,26 +520,6 @@ html { scroll-behavior: smooth; }
   </div>
 </section>
 
-<section id="now">
-  <div class="wrap">
-    <p class="kicker">What's happening</p>
-    <h2>The push for $20</h2>
-    <div class="timeline">
-      <div class="ev"><time datetime="2026-11-25">Nov. 25, 2026</time><p>Pennsylvania U.S. Sen. Dave McCormick, who says he has &ldquo;generally been opposed&rdquo; to raising the minimum wage, now says a $15 state minimum is &ldquo;something I&rsquo;d be open-minded about.&rdquo; It is a statement, not a bill. Pennsylvania is still at $7.25. <a class="src" href="https://www.northcentralpa.com/news/state/u-s-sen-dave-mccormick-open-minded-to-15-minimum-wage-in-pennsylvania/article_31818de6-582a-5b14-b925-458f843c573c.html" target="_blank" rel="noopener">The Center Square &rarr;</a></p><a class="thumb" href="https://www.northcentralpa.com/news/state/u-s-sen-dave-mccormick-open-minded-to-15-minimum-wage-in-pennsylvania/article_31818de6-582a-5b14-b925-458f843c573c.html" target="_blank" rel="noopener" aria-label="Read at The Center Square"><img src="https://bloximages.newyork1.vip.townnews.com/northcentralpa.com/content/tncms/assets/v3/editorial/f/3e/f3ee026e-f4f4-11ee-97c1-3b9fbc716633/6612be13a4638.image.jpg?crop=1000%2C525%2C0%2C27" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>The Center Square</span></a></div>
-      <div class="ev"><time datetime="2026-11-25">Nov. 25, 2026</time><p>Opponents linked to D.C.'s restaurant association challenge more than 30,000 of the 43,000 signatures for Initiative 87. It would raise D.C.'s minimum from $18.40 to $25 by 2029 and end the lower tipped wage by 2031. The elections board has 20 days to decide if it makes the April 6 ballot. No ruling yet. <a class="src" href="https://www.washingtonsun.com/metro/dc/minimum-wage-initiative-voter-signatures" target="_blank" rel="noopener">The Washington Sun &rarr;</a></p><a class="thumb" href="https://www.washingtonsun.com/metro/dc/minimum-wage-initiative-voter-signatures" target="_blank" rel="noopener" aria-label="Read at The Washington Sun"><img src="https://static.washingtonsun.com/dims4/default/0331524/2147483647/strip/true/crop/7502x4220+0+391/resize/1440x810!/quality/90/?url=https%3A%2F%2Fk2-prod-aji.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fa8%2F6d%2Facdba61342b798a9780f255c0d79%2Fearlyvoting-dc-061226-02.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>The Washington Sun</span></a></div>
-      <div class="ev"><time datetime="2026-11-23">Nov. 23, 2026</time><p>A Texas bill, HB 110, would raise the state minimum from $7.25 to $15 on Sept. 1, 2027. It is a bill, not law. The legislature meets in January. <a class="src" href="https://www.kltv.com/2026/11/23/state-rep-explains-bill-that-would-raise-minimum-wage-texas-workers/" target="_blank" rel="noopener">KLTV &rarr;</a></p><a class="thumb" href="https://www.kltv.com/2026/11/23/state-rep-explains-bill-that-would-raise-minimum-wage-texas-workers/" target="_blank" rel="noopener" aria-label="Read at KLTV"><img src="https://gray-kltv-prod.gtv-cdn.com/resizer/v2/FLTQVO7ZKBB73CU24DH53PGY5M.jpg?auth=af38c0ed74c2b4e4993572e7ec67a2ad129ad68070bdfae5977cb40cfac3754a&amp;width=1200&amp;height=600&amp;smart=true" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>KLTV</span></a></div>
-      <div class="ev"><time datetime="2026-11-23">Nov. 23, 2026</time><p>Arkansas lawmakers file bills to raise the state minimum from $11 to $15. One reaches $15 in January 2028. Another starts at $13.50 once in effect and reaches $15 a year later. None is law yet. The legislature meets Jan. 11. <a class="src" href="https://www.actionnews5.com/2026/11/23/arkansas-bills-would-raise-minimum-wage-15-an-hour/" target="_blank" rel="noopener">Action News 5 &rarr;</a></p><a class="thumb" href="https://www.actionnews5.com/2026/11/23/arkansas-bills-would-raise-minimum-wage-15-an-hour/" target="_blank" rel="noopener" aria-label="Read at Action News 5"><img src="https://gray-wmctv-prod.gtv-cdn.com/resizer/v2/6WTJFD6HO5HHXJZ7ZXEGH6LBQM.png?auth=c75eb71b8b4eb7b7493ba531440dff4e3d52db6c712fcd91935d488148dd037e&amp;width=1200&amp;height=600&amp;smart=true" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>Action News 5</span></a></div>
-      <div class="ev"><time datetime="2026-11-20">Nov. 20, 2026</time><p>Pennsylvania Gov. Josh Shapiro tells PBS News Hour the first bill on his desk in January will raise the state minimum from $7.25 to at least $15. It is not law yet. He gave no phase-in and said nothing about tipped wages. <a class="src" href="https://www.pbs.org/newshour/show/josh-shapiro-on-foreign-policy-democratic-wins-and-his-2028-ambitions" target="_blank" rel="noopener">PBS News Hour &rarr;</a></p><a class="thumb" href="https://www.pbs.org/newshour/show/josh-shapiro-on-foreign-policy-democratic-wins-and-his-2028-ambitions" target="_blank" rel="noopener" aria-label="Read at PBS News Hour"><img src="https://d3i6fh83elv35t.cloudfront.net/static/2026/11/oneonone-1024x683.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>PBS News Hour</span></a></div>
-      <div class="ev"><time datetime="2026-11-18">Nov. 18, 2026</time><p>A group of 17 current and incoming House members pushes the Living Wage For All Act, a $25 federal minimum. Employers with 500 or more workers or $1 billion in revenue would reach $25 by 2031; everyone else by 2038. The bill also ends the lower cash wage for tipped workers. Tips stay with the worker. <a class="src" href="https://www.aljazeera.com/economy/2026/11/18/us-lawmakers-push-to-raise-minimum-wage-to-25-end-tipped-pay-system" target="_blank" rel="noopener">Al Jazeera &rarr;</a></p><a class="thumb" href="https://www.aljazeera.com/economy/2026/11/18/us-lawmakers-push-to-raise-minimum-wage-to-25-end-tipped-pay-system" target="_blank" rel="noopener" aria-label="Read at Al Jazeera"><img src="https://www.aljazeera.com/wp-content/uploads/2026/11/2026-11-12T145626Z_1656464802_RC2SXY95PV4I_RTRMADP_3_USA-ECONOMY-1795030831.jpg?resize=640%2C480" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>Al Jazeera</span></a></div>
-      <div class="ev"><time datetime="2026-11-18">Nov. 18, 2026</time><p>Pennsylvania Gov. Josh Shapiro says a minimum wage bill will reach his desk before his second term starts January 19. He backs at least $15 an hour, up from the state's $7.25. The final amount and phase-in are not set. <a class="src" href="https://justthenews.com/nation/states/center-square/shapiro-predicts-15-hourly-minimum-wage-bill-will-hit-his-desk-first" target="_blank" rel="noopener">The Center Square &rarr;</a></p><a class="thumb" href="https://justthenews.com/nation/states/center-square/shapiro-predicts-15-hourly-minimum-wage-bill-will-hit-his-desk-first" target="_blank" rel="noopener" aria-label="Read at The Center Square"><img src="https://justthenews.com/sites/default/files/styles/social_media_share/public/2024-07/GettyImages-1514617789.jpg?h=69f2b9d0&amp;itok=-L7na56w" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>The Center Square</span></a></div>
-      <div class="ev"><time datetime="2026-11">November 2026</time><p>Sanders, expected to chair the Senate HELP Committee in January, lists a $20 federal minimum among his committee priorities. <a class="src" href="https://www.pbs.org/newshour/politics/ap-report-bernie-sanders-unveils-how-hell-push-for-medicare-for-all-when-democrats-take-power" target="_blank" rel="noopener">AP via PBS NewsHour &rarr;</a></p><a class="thumb" href="https://www.pbs.org/newshour/politics/ap-report-bernie-sanders-unveils-how-hell-push-for-medicare-for-all-when-democrats-take-power" target="_blank" rel="noopener" aria-label="Read at AP via PBS NewsHour"><img src="https://d3i6fh83elv35t.cloudfront.net/static/2026/11/2026-11-17T185417Z_133484952_RC2TPOAFQ5LG_RTRMADP_3_USA-CONGRESS-1024x683.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>AP via PBS NewsHour</span></a></div>
-      <div class="ev"><time datetime="2026-10">October 2026</time><p>Sen. Bernie Sanders calls for a federal minimum of at least $20 an hour. <a class="src" href="https://www.yahoo.com/news/politics/articles/bernie-sanders-demands-20-minimum-183007545.html" target="_blank" rel="noopener">Benzinga &rarr;</a></p><a class="thumb" href="https://www.yahoo.com/news/politics/articles/bernie-sanders-demands-20-minimum-183007545.html" target="_blank" rel="noopener" aria-label="Read at Benzinga"><img src="https://s.yimg.com/lo/mysterio/api/ad60f95166da7a62db627ce8feb9e9de3d35832b2031af8a7a42d47678093f8f/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbenzinga_79%2F46b1d2a40c0022eff299c7b3c5bbb69b.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>Benzinga</span></a></div>
-      <div class="ev"><time datetime="2025-04">April 2025</time><p>The Raise the Wage Act of 2025 is introduced in Congress, proposing a $17 federal minimum by 2030. <a class="src" href="https://democrats-edworkforce.house.gov/media/press-releases/04/08/2025/labor-leaders-introduce-bill-to-raise-minimum-wage" target="_blank" rel="noopener">House Education &amp; Workforce Democrats &rarr;</a></p><a class="thumb" href="https://democrats-edworkforce.house.gov/media/press-releases/04/08/2025/labor-leaders-introduce-bill-to-raise-minimum-wage" target="_blank" rel="noopener" aria-label="Read at House Education &amp; Workforce Democrats"><img src="https://democrats-edworkforce.house.gov/themes/edlabor/images/sharelogo.jpg" class="logo" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()"><span>House Education &amp; Workforce Democrats</span></a></div>
-    </div>
-    <button type="button" class="more" id="tl-more" hidden aria-expanded="false">See more</button>
-  </div>
-</section>
-
 <section id="join" class="join">
   <div class="wrap">
     <div class="stack">
@@ -524,7 +548,8 @@ html { scroll-behavior: smooth; }
 
 <section class="sources">
   <div class="wrap">
-    <p class="kicker">Sources</p>
+    <details>
+    <summary class="kicker">Sources</summary>
     <ol>
       <li>Sen. Bernie Sanders, Raise the Wage Act of 2025 fact sheet.</li>
       <li>House Education &amp; Workforce Democrats, "Labor Leaders Introduce Bill to Raise Minimum Wage," April 8, 2025.</li>
@@ -548,6 +573,7 @@ html { scroll-behavior: smooth; }
       <li>Fair Work Ombudsman, "Minimum wage increase starts today," July 1, 2026; Fast Food Industry Award 2020, clause 15.2.</li>
       <li>Fair Work Commission, junior rates decision, March 31, 2026, and phase-in schedule, [2026] FWCFB 222, August 26, 2026.</li>
     </ol>
+    </details>
   </div>
 </section>
 
@@ -558,6 +584,15 @@ html { scroll-behavior: smooth; }
 </footer>
 
 <script>
+(function () {
+  var now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  document.querySelectorAll('#now .ev time').forEach(function (t) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(t.getAttribute('datetime') || '');
+    if (!m) return;
+    var days = (today - new Date(+m[1], m[2] - 1, +m[3])) / 864e5;
+    if (days >= 0 && days <= 7) t.insertAdjacentHTML('beforeend', '<span class="new">New</span>');
+  });
+})();
 (function () {
   var tl = document.querySelector('#now .timeline'), btn = document.getElementById('tl-more');
   if (!tl || !btn || tl.querySelectorAll('.ev').length <= 5) return;
